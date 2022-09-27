@@ -1,0 +1,477 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body,
+html {
+  background-color: #f6f6ff;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+input[type='date'] {
+  cursor: pointer;
+}
+
+button {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  font-weight: 600;
+  border-radius: 30px;
+  font-size: 16px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+a:hover,
+button:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-filter: brightness(97%);
+          filter: brightness(97%);
+}
+
+input {
+  border: 0;
+  outline: 0;
+  border: 1px solid #ced4da;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='number'] {
+  text-indent: 4px;
+}
+
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='number']:focus,
+input[type='date']:focus,
+textarea:focus,
+select:focus {
+  border-color: #0d6efd;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(13, 110, 253, 0.6);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(13, 110, 253, 0.6);
+  outline: 0 none;
+}
+
+::-webkit-input-placeholder {
+  color: #6c757d;
+}
+
+:-ms-input-placeholder {
+  color: #6c757d;
+}
+
+::-ms-input-placeholder {
+  color: #6c757d;
+}
+
+::placeholder {
+  color: #6c757d;
+}
+
+.area {
+  margin: 40px 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.area .container {
+  background-color: white;
+  border-radius: 12px;
+  padding: 50px;
+  width: 80%;
+}
+
+.area .container .header {
+  border-bottom: 1px solid #ced4da;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.area .container .header p {
+  margin: 20px 0;
+  font-size: 14px;
+  color: #495057;
+}
+
+.area .container .header a.login button,
+.area .container .header a.manajemen button,
+.area .container .header a.home button {
+  color: white;
+  padding: 10px 12px;
+}
+
+.area .container .header a.login button {
+  background-color: #dc3545;
+}
+
+.area .container .header a.manajemen button {
+  background-color: #ffc107;
+  margin-right: 10px;
+}
+
+.area .container .header a.home button {
+  background-color: #198754;
+}
+
+.area .container .search {
+  margin: 20px 0;
+}
+
+.area .container .search input {
+  width: 40%;
+  border-radius: 24px;
+  -webkit-box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.area .container .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.area .container .content table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+.area .container .content table tr th {
+  background-color: #0d6efd;
+  color: white;
+  padding: 4px 0;
+}
+
+.area .container .content table tr td {
+  font-size: 14px;
+}
+
+.area .container .content table tr td.aksi {
+  padding: 6px 0;
+}
+
+.area .container .content table tr td.aksi a.update button,
+.area .container .content table tr td.aksi a.delete button {
+  font-size: 16px;
+  color: white;
+  padding: 6px 8px;
+}
+
+.area .container .content table tr td.aksi a.update {
+  margin-right: 8px;
+}
+
+.area .container .content table tr td.aksi a.update button {
+  background-color: #ffc107;
+}
+
+.area .container .content table tr td.aksi a.delete button {
+  background-color: #dc3545;
+}
+
+.area .container .content table tr th,
+.area .container .content table tr td {
+  border: 1px solid #ddd;
+}
+
+.area .container .content table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.area .container .content form {
+  width: 50%;
+}
+
+.area .container .content form .form-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.area .container .content form .form-input label {
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.area .container .content form .form-input input {
+  width: 100%;
+}
+
+.area .container .content form .form-input label.notif {
+  color: red;
+  font-size: 13px;
+}
+
+.area .container .content form .form-button {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.area .container .content form .form-button button {
+  background-color: #0d6efd;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  color: white;
+}
+
+.area .container .content .image {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.area .container .content .image img {
+  width: 380px;
+}
+
+.area .container .ques {
+  display: none;
+  width: 100%;
+}
+
+.area .container .ques .btn-back {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.area .container .ques .btn-back button.back {
+  background-color: #ffc107;
+  padding: 10px 14px;
+  border-radius: 28px;
+  font-weight: 700;
+}
+
+.area .container .ques form {
+  width: 100%;
+}
+
+.area .container .ques form .title {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.area .container .ques form .content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.area .container .ques form .content .form-ques {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.area .container .ques form .content .form-ques .radio-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.area .container .ques form .content .form-ques .radio-area .radio-btn {
+  margin: 0 10px;
+}
+
+.area .container .ques form .ques-button {
+  margin-top: 10px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.area .container .ques form .ques-button button {
+  background-color: #0d6efd;
+  padding: 10px 14px;
+  color: white;
+}
+
+@-webkit-keyframes zoomFade {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomFade {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    margin-top: -200px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes slideDownFade {
+  0% {
+    opacity: 0;
+    margin-top: -200px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@-webkit-keyframes slideLeftFade {
+  0% {
+    opacity: 0;
+    margin-right: -30px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0;
+  }
+}
+
+@keyframes slideLeftFade {
+  0% {
+    opacity: 0;
+    margin-right: -30px;
+  }
+  100% {
+    opacity: 1;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .area .container {
+    width: 90%;
+  }
+  .area .container .content .image img {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .area {
+    margin: 40px 30px;
+  }
+  .area .container .content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .area .container .content form {
+    width: 100%;
+  }
+  .area .container .content .image {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 30px;
+  }
+  .area .container .content .image img {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .area {
+    margin: 20px 10px;
+  }
+  .area .container {
+    width: 90%;
+    padding: 20px;
+  }
+}
+/*# sourceMappingURL=styleIndex.css.map */

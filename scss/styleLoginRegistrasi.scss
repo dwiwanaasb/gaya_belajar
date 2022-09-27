@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'modules/color';
+@import 'modules/reset';
+
+.area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .container {
+        background-color: white;
+        border-radius: 12px;
+        padding: 30px 20px;
+        width: 40%;
+
+        .header {
+            margin-bottom: 20px;
+
+            label {
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+        }
+
+        .content {
+            .form-input {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 10px;
+                position: relative;
+
+                label {
+                    margin-bottom: 4px;
+                    font-weight: 500;
+                }
+
+                i#togglePassword,
+                i#toggleCPassword {
+                    cursor: pointer;
+                    font-size: 18px;
+                    position: absolute;
+                    color: #858585;
+                    top: 36px;
+                    right: 16px;
+                }
+            }
+
+            .form-button {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                button {
+                    background-color: #0d6efd;
+                    padding: 10px;
+                    margin-bottom: 10px;
+                    width: 100%;
+                    color: white;
+                }
+
+                span {
+                    font-size: 14px;
+
+                    a {
+                        text-decoration: underline;
+                        color: black;
+                    }
+                }
+
+                a {
+                    font-size: 14px;
+                    text-decoration: underline;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .area {
+        .container {
+            width: 60%;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .area {
+        .container {
+            width: 90%;
+        }
+    }
+}

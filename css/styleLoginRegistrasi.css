@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body,
+html {
+  background-color: #f6f6ff;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+input[type='date'] {
+  cursor: pointer;
+}
+
+button {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  font-weight: 600;
+  border-radius: 30px;
+  font-size: 16px;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+a:hover,
+button:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-filter: brightness(97%);
+          filter: brightness(97%);
+}
+
+input {
+  border: 0;
+  outline: 0;
+  border: 1px solid #ced4da;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='number'] {
+  text-indent: 4px;
+}
+
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='number']:focus,
+input[type='date']:focus,
+textarea:focus,
+select:focus {
+  border-color: #0d6efd;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(13, 110, 253, 0.6);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(13, 110, 253, 0.6);
+  outline: 0 none;
+}
+
+::-webkit-input-placeholder {
+  color: #6c757d;
+}
+
+:-ms-input-placeholder {
+  color: #6c757d;
+}
+
+::-ms-input-placeholder {
+  color: #6c757d;
+}
+
+::placeholder {
+  color: #6c757d;
+}
+
+.area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.area .container {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  width: 40%;
+}
+
+.area .container .header {
+  margin-bottom: 20px;
+}
+
+.area .container .header label {
+  font-size: 14px;
+}
+
+.area .container .header h2 {
+  font-size: 28px;
+}
+
+.area .container .content .form-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.area .container .content .form-input label {
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.area .container .content .form-input i#togglePassword,
+.area .container .content .form-input i#toggleCPassword {
+  cursor: pointer;
+  font-size: 18px;
+  position: absolute;
+  color: #858585;
+  top: 36px;
+  right: 16px;
+}
+
+.area .container .content .form-button {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.area .container .content .form-button button {
+  background-color: #0d6efd;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  color: white;
+}
+
+.area .container .content .form-button span {
+  font-size: 14px;
+}
+
+.area .container .content .form-button span a {
+  text-decoration: underline;
+  color: black;
+}
+
+.area .container .content .form-button a {
+  font-size: 14px;
+  text-decoration: underline;
+  color: black;
+}
+
+@media screen and (max-width: 992px) {
+  .area .container {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .area .container {
+    width: 90%;
+  }
+}
+/*# sourceMappingURL=styleLoginRegistrasi.css.map */

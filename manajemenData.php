@@ -41,7 +41,7 @@ $result = select("SELECT * FROM data_siswa");
             <div class="search">
                 <input type="text" name="keyword" id="keyword" placeholder="Masukkan keyword pencarian..." autocomplete="off" id="keyword">
             </div>
-            <div class="content-table" id="content-table">
+            <div class="table-area" id="content-table">
                 <table>
                     <tr>
                         <th rowspan="2">NO</th>

@@ -7,23 +7,6 @@ if (!isset($_SESSION["login"])) {
     header('location: login.php');
     exit;
 }
-$ques1v = 0.7 * 1;
-$ques2v = 0.8 * 1;
-$ques3v = 0.6 * 1;
-$ques4v = 0.8 * 1;
-$ques5v = 0.4 * 1;
-
-$ques1a = 0.6 * 1;
-$ques2a = 0.6 * 1;
-$ques3a = 0.7 * 1;
-$ques4a = 0.8 * 1;
-$ques5a = 0.6 * 1;
-
-$ques1k = 0.8 * 1;
-$ques2k = 0.6 * 1;
-$ques3k = 0.6 * 1;
-$ques4k = 0.7 * 1;
-$ques5k = 0.4 * 1;
 ?>
 
 <!DOCTYPE html>

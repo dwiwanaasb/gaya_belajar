@@ -1,9 +1,5 @@
 <?php
 require 'config/functions.php';
-if (!isset($_SESSION["login"])) {
-    header('location: login.php');
-    exit;
-}
 $keyword = $_GET["keyword"];
 $result = select("SELECT * FROM data_siswa WHERE
                     nik LIKE '%$keyword%' OR

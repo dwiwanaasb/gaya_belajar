@@ -158,7 +158,7 @@ select:focus {
           box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
-.area .container .content-table {
+.area .container .table-area {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -173,13 +173,13 @@ select:focus {
   overflow: auto;
 }
 
-.area .container .content-table table {
+.area .container .table-area table {
   border-collapse: collapse;
   width: 100%;
   text-align: center;
 }
 
-.area .container .content-table table tr th {
+.area .container .table-area table tr th {
   background-color: #0d6efd;
   color: white;
   padding: 4px 12px;
@@ -189,16 +189,16 @@ select:focus {
   font-size: 14px;
 }
 
-.area .container .content-table table tr th.thScroll {
+.area .container .table-area table tr th.thScroll {
   top: 30px;
 }
 
-.area .container .content-table table tr td {
+.area .container .table-area table tr td {
   font-size: 14px;
   padding: 4px 12px;
 }
 
-.area .container .content-table table tr td.aksi {
+.area .container .table-area table tr td.aksi {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -214,13 +214,13 @@ select:focus {
           flex-direction: column;
 }
 
-.area .container .content-table table tr td.aksi a.update,
-.area .container .content-table table tr td.aksi a.delete {
+.area .container .table-area table tr td.aksi a.update,
+.area .container .table-area table tr td.aksi a.delete {
   margin: 4px;
 }
 
-.area .container .content-table table tr td.aksi a.update button,
-.area .container .content-table table tr td.aksi a.delete button {
+.area .container .table-area table tr td.aksi a.update button,
+.area .container .table-area table tr td.aksi a.delete button {
   font-size: 14px;
   color: white;
   border-radius: 50%;
@@ -228,20 +228,20 @@ select:focus {
   height: 30px;
 }
 
-.area .container .content-table table tr td.aksi a.update button {
+.area .container .table-area table tr td.aksi a.update button {
   background-color: #ffc107;
 }
 
-.area .container .content-table table tr td.aksi a.delete button {
+.area .container .table-area table tr td.aksi a.delete button {
   background-color: #dc3545;
 }
 
-.area .container .content-table table tr th,
-.area .container .content-table table tr td {
+.area .container .table-area table tr th,
+.area .container .table-area table tr td {
   border: 1px solid #ddd;
 }
 
-.area .container .content-table table tr:nth-child(even) {
+.area .container .table-area table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 

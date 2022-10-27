@@ -2,8 +2,8 @@
 session_start();
 require 'config/functions.php';
 
-if (isset($_SESSION["login"])) {
-    header('location: index.php');
+if (!isset($_SESSION["login"])) {
+    header('location: login.php');
     exit;
 }
 
@@ -18,6 +18,7 @@ $result = select("SELECT * FROM data_siswa");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styleIndex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/sweetalert2.all.min.js"></script>
     <script src="js/ajaxSearch.js"></script>
@@ -40,16 +41,22 @@ $result = select("SELECT * FROM data_siswa");
             <div class="search">
                 <input type="text" name="keyword" id="keyword" placeholder="Masukkan keyword pencarian..." autocomplete="off" id="keyword">
             </div>
-            <div class="content" id="content-table">
+            <div class="content-table" id="content-table">
                 <table>
                     <tr>
-                        <th>NO</th>
-                        <th>NIK</th>
-                        <th>NAMA ANAK</th>
-                        <th>USIA</th>
-                        <th>NAMA ORTU</th>
-                        <th>ALAMAT</th>
-                        <th>AKSI</th>
+                        <th rowspan="2">NO</th>
+                        <th rowspan="2">NIK</th>
+                        <th rowspan="2">NAMA ANAK</th>
+                        <th rowspan="2">USIA</th>
+                        <th rowspan="2">NAMA ORTU</th>
+                        <th rowspan="2">ALAMAT</th>
+                        <th colspan="3">HASIL EVALUASI</th>
+                        <th rowspan="2">AKSI</th>
+                    </tr>
+                    <tr>
+                        <th class="thScroll">VISUAL</th>
+                        <th class="thScroll">AUDITORI</th>
+                        <th class="thScroll">KINESTETIK</th>
                     </tr>
                     <?php $i = 1; ?>
                     <?php foreach ($result as $row) : ?>
@@ -60,9 +67,12 @@ $result = select("SELECT * FROM data_siswa");
                             <td><?= $row["usia"]; ?></td>
                             <td><?= $row["nama_ortu"]; ?></td>
                             <td><?= $row["alamat"]; ?></td>
+                            <td><?= number_format($row["visual"], 2) . "%" ?></td>
+                            <td><?= number_format($row["auditori"], 2) . "%" ?></td>
+                            <td><?= number_format($row["kinestetik"], 2) . "%" ?></td>
                             <td class="aksi">
-                                <a href="update.php?id=<?= $row["id"]; ?>" class="update"><button>Update</button></a>
-                                <a href="delete.php?id=<?= $row["id"]; ?>" class="delete"><button>Delete</button></a>
+                                <a href="update.php?id=<?= $row["id"]; ?>" class="update"><button><i class="fas fa-regular fa-pen"></i></button></a>
+                                <a href="delete.php?id=<?= $row["id"]; ?>" class="delete"><button><i class="fas fa-regular fa-trash"></i></button></a>
                             </td>
                         </tr>
                         <?php $i++; ?>

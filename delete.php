@@ -14,8 +14,8 @@
     session_start();
     require 'config/functions.php';
 
-    if (isset($_SESSION["login"])) {
-        header('location: index.php');
+    if (!isset($_SESSION["login"])) {
+        header('location: login.php');
         exit;
     }
 
@@ -29,7 +29,7 @@
                     showConfirmButton: false
                 })
                 setTimeout(function(){
-                    document.location.href = 'index.php';
+                    document.location.href = 'manajemenData.php';
                 }, 1800);
             </script>";
     } else {
@@ -41,7 +41,7 @@
                     text: 'Data gagal dihapus!'
                 })
                 setTimeout(function(){
-                    document.location.href = 'index.php';
+                    document.location.href = 'manajemenData.php';
                 }, 1500);
             </script>";
     }

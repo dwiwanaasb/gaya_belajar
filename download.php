@@ -4,6 +4,11 @@ session_start();
 require 'config/functions.php';
 require 'vendor/autoload.php';
 
+if (!isset($_SESSION["login"])) {
+    header('location: login.php');
+    exit;
+}
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 

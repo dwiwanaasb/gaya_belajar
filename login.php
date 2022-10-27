@@ -16,7 +16,7 @@ if (isset($_SESSION["login"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styleLoginRegistrasi.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/sweetalert2.all.min.js"></script>
     <script src="js/script.js"></script>
@@ -60,6 +60,8 @@ if (isset($_SESSION["login"])) {
             if (mysqli_num_rows($result) == 1) {
                 $row = mysqli_fetch_assoc($result);
                 $username = $row["username"];
+
+                $_SESSION["login"] = true;
 
                 echo "<script>
                     let lat = '" . $username . "';

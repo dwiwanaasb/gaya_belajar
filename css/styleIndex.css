@@ -24,8 +24,8 @@ input[type='date'] {
 }
 
 button {
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
   font-weight: 600;
   border-radius: 30px;
   font-size: 16px;
@@ -34,7 +34,6 @@ button {
   cursor: pointer;
 }
 
-a:hover,
 button:hover {
   -webkit-transform: scale(1.02);
           transform: scale(1.02);
@@ -85,7 +84,7 @@ select:focus {
 }
 
 .area {
-  margin: 40px 70px;
+  margin: 40px 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -100,7 +99,7 @@ select:focus {
 .area .container {
   background-color: white;
   border-radius: 12px;
-  padding: 50px;
+  padding: 30px;
   width: 80%;
 }
 
@@ -116,6 +115,10 @@ select:focus {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.area .container .header .left i {
+  font-size: 100px;
 }
 
 .area .container .header p {
@@ -155,6 +158,93 @@ select:focus {
           box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
+.area .container .content-table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-height: 500px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.area .container .content-table table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+.area .container .content-table table tr th {
+  background-color: #0d6efd;
+  color: white;
+  padding: 4px 12px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-size: 14px;
+}
+
+.area .container .content-table table tr th.thScroll {
+  top: 30px;
+}
+
+.area .container .content-table table tr td {
+  font-size: 14px;
+  padding: 4px 12px;
+}
+
+.area .container .content-table table tr td.aksi {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.area .container .content-table table tr td.aksi a.update,
+.area .container .content-table table tr td.aksi a.delete {
+  margin: 4px;
+}
+
+.area .container .content-table table tr td.aksi a.update button,
+.area .container .content-table table tr td.aksi a.delete button {
+  font-size: 14px;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.area .container .content-table table tr td.aksi a.update button {
+  background-color: #ffc107;
+}
+
+.area .container .content-table table tr td.aksi a.delete button {
+  background-color: #dc3545;
+}
+
+.area .container .content-table table tr th,
+.area .container .content-table table tr td {
+  border: 1px solid #ddd;
+}
+
+.area .container .content-table table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
 .area .container .content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -167,54 +257,6 @@ select:focus {
           justify-content: center;
   max-height: 500px;
   overflow: auto;
-}
-
-.area .container .content table {
-  border-collapse: collapse;
-  width: 100%;
-  text-align: center;
-}
-
-.area .container .content table tr th {
-  background-color: #0d6efd;
-  color: white;
-  padding: 4px 0;
-}
-
-.area .container .content table tr td {
-  font-size: 14px;
-}
-
-.area .container .content table tr td.aksi {
-  padding: 6px 0;
-}
-
-.area .container .content table tr td.aksi a.update button,
-.area .container .content table tr td.aksi a.delete button {
-  font-size: 16px;
-  color: white;
-  padding: 6px 8px;
-}
-
-.area .container .content table tr td.aksi a.update {
-  margin-right: 8px;
-}
-
-.area .container .content table tr td.aksi a.update button {
-  background-color: #ffc107;
-}
-
-.area .container .content table tr td.aksi a.delete button {
-  background-color: #dc3545;
-}
-
-.area .container .content table tr th,
-.area .container .content table tr td {
-  border: 1px solid #ddd;
-}
-
-.area .container .content table tr:nth-child(even) {
-  background-color: #f2f2f2;
 }
 
 .area .container .content form {
@@ -296,11 +338,12 @@ select:focus {
   margin-bottom: 20px;
 }
 
-.area .container .ques .btn-back button.back {
+.area .container .ques .btn-back form button {
   background-color: #ffc107;
   padding: 10px 14px;
   border-radius: 28px;
   font-weight: 700;
+  color: white;
 }
 
 .area .container .ques form {

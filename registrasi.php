@@ -2,8 +2,8 @@
 session_start();
 require 'config/functions.php';
 
-if (isset($_SESSION["login"])) {
-    header('location: index.php');
+if (!isset($_SESSION["login"])) {
+    header('location: login.php');
     exit;
 }
 ?>

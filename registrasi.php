@@ -68,7 +68,7 @@ if (!isset($_SESSION["login"])) {
                         icon: 'error',
                         title: 'Terjadi kesalahan',
                         showConfirmButton: false,
-                        text: 'Username telah terdaftar!'
+                        text: 'Username ini telah terdaftar sebelumnya!'
                     })
                     setTimeout(function(){
                         document.location.href = 'registrasi.php';

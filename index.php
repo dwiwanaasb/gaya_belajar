@@ -496,7 +496,7 @@ if (!isset($_SESSION["login"])) {
         $alamat = htmlspecialchars($_POST["alamat"]);
 
         $result = select("SELECT * FROM data_siswa WHERE nik = $nik")[0];
-        $id = $result["id"];
+        $id_siswa = $result["id_siswa"];
         $nama = $result["nama_anak"];
 
         if (is_null($nama)) {
@@ -534,18 +534,18 @@ if (!isset($_SESSION["login"])) {
                     $('#ques').css('flex-direction', 'column');
             </script>";
             mysqli_query($conn, "UPDATE data_siswa SET nama_anak = '$nama_anak', usia = $usia, nama_ortu = '$nama_ortu', alamat = '$alamat' WHERE nik = $nik");
-            $_SESSION['id'] = '';
-            $_SESSION['id'] = $id;
-            $sessId = $_SESSION['id'];
+            $_SESSION['id_siswa'] = '';
+            $_SESSION['id_siswa'] = $id_siswa;
+            $sessId = $_SESSION['id_siswa'];
         }
     }
     ?>
 
     <?php
     if (isset($_POST["back"])) {
-        $row = select("SELECT id FROM data_siswa ORDER BY id DESC")[0];
-        $id = $row["id"];
-        mysqli_query($conn, "DELETE FROM data_siswa WHERE id = '$id'");
+        $row = select("SELECT id_siswa FROM data_siswa ORDER BY id_siswa DESC")[0];
+        $id_siswa = $row["id_siswa"];
+        mysqli_query($conn, "DELETE FROM data_siswa WHERE id_siswa = '$id_siswa'");
         header('location: index.php');
     }
     ?>
@@ -748,11 +748,11 @@ if (!isset($_SESSION["login"])) {
         }
 
         if (is_null($sessId)) {
-            $row = select("SELECT id FROM data_siswa ORDER BY id DESC")[0];
-            $id = $row["id"];
+            $row = select("SELECT id_siswa FROM data_siswa ORDER BY id_siswa DESC")[0];
+            $id_siswa = $row["id_siswa"];
             mysqli_query($conn, "INSERT INTO kuesioner (siswa_id, ques1v, ques2v, ques3v, ques4v, ques5v, ques1a, ques2a, ques3a, ques4a, ques5a, ques1k, ques2k, ques3k, ques4k, ques5k) 
-                        VALUES ($id, '$valques1v','$valques2v','$valques3v','$valques4v','$valques5v','$valques1a','$valques2a','$valques3a','$valques4a','$valques5a','$valques1k','$valques2k','$valques3k','$valques4k','$valques5k')");
-            $data = select("SELECT * FROM kuesioner ORDER BY id DESC LIMIT 1")[0];
+                        VALUES ($id_siswa, '$valques1v','$valques2v','$valques3v','$valques4v','$valques5v','$valques1a','$valques2a','$valques3a','$valques4a','$valques5a','$valques1k','$valques2k','$valques3k','$valques4k','$valques5k')");
+            $data = select("SELECT * FROM kuesioner ORDER BY id_kuesioner DESC LIMIT 1")[0];
             $idSiswa = $data["siswa_id"];
         } else {
             mysqli_query($conn, "UPDATE kuesioner SET 
@@ -775,7 +775,7 @@ if (!isset($_SESSION["login"])) {
             $idSiswa = $sessId;
         }
 
-        $data_siswa = select("SELECT * FROM data_siswa WHERE id = $idSiswa")[0];
+        $data_siswa = select("SELECT * FROM data_siswa WHERE id_siswa = $idSiswa")[0];
         $nama = $data_siswa["nama_anak"];
         $usia = $data_siswa["usia"];
 
@@ -834,7 +834,7 @@ if (!isset($_SESSION["login"])) {
         $persenKinestetik = $resultQues4k * 100;
         $persenKinestetik = number_format($persenKinestetik, 2);
 
-        mysqli_query($conn, "UPDATE data_siswa SET visual = '$persenVisual', auditori = '$persenAuditori', kinestetik = '$persenKinestetik' WHERE id = $idSiswa");
+        mysqli_query($conn, "UPDATE data_siswa SET visual = '$persenVisual', auditori = '$persenAuditori', kinestetik = '$persenKinestetik' WHERE id_siswa = $idSiswa");
         $hasil = "Hasil evaluasi gaya belajar siswa dengan nama " . $nama . ", usia " . $usia . " tahun adalah " . $persenVisual . " % Visual, " . $persenAuditori . " % Auditori, dan " . $persenKinestetik . " % Kinestetik.";
 
         echo "<script>

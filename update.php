@@ -7,8 +7,8 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 
-$id = $_GET["id"];
-$data = select("SELECT * FROM data_siswa WHERE id = $id")[0];
+$id_siswa = $_GET["id_siswa"];
+$data = select("SELECT * FROM data_siswa WHERE id_siswa = $id_siswa")[0];
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ $data = select("SELECT * FROM data_siswa WHERE id = $id")[0];
             </div>
             <div class="content">
                 <form action="" method="post" name="form-data" id="form-data">
-                    <input type="hidden" name="id" value="<?= $data["id"]; ?>">
+                    <input type="hidden" name="id_siswa" value="<?= $data["id_siswa"]; ?>">
                     <div class="form-input">
                         <label for="">NIK</label>
                         <input type="number" name="nik" id="nik" placeholder="Masukkan nik..." value="<?= $data["nik"]; ?>" autocomplete="off" required>
@@ -68,30 +68,49 @@ $data = select("SELECT * FROM data_siswa WHERE id = $id")[0];
 
         <?php
         if (isset($_POST["update"])) {
-            if (update($_POST) == 1) {
+            $id_siswa = $_POST["id_siswa"];
+            $nik = htmlspecialchars($_POST["nik"]);
+            $nama_anak = htmlspecialchars($_POST["nama_anak"]);
+            $usia = htmlspecialchars($_POST["usia"]);
+            $nama_ortu = htmlspecialchars($_POST["nama_ortu"]);
+            $alamat = htmlspecialchars($_POST["alamat"]);
+
+            $result = mysqli_query($conn, "SELECT nik FROM data_siswa WHERE nik = $nik");
+
+            if (mysqli_fetch_assoc($result)) {
                 echo "<script>
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Data berhasil diupdate',
-                    showConfirmButton: false
-                })
-                setTimeout(function(){
-                    document.location.href = 'manajemenData.php';
-                }, 1800);
-            </script>";
-            } else {
-                echo "<script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Terjadi kesalahan',
-                    showConfirmButton: false,
-                    text: 'Data gagal diupdate!'
-                })
-                setTimeout(function(){
-                    document.location.href = 'manajemenData.php';
-                }, 1500);
-            </script>";
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Terjadi kesalahan',
+                            showConfirmButton: false,
+                            text: 'Data siswa ini telah terdaftar sebelumnya!'
+                        })
+                        setTimeout(function(){
+                            document.location.href = 'manajemenData.php';
+                        }, 1500);
+                    </script>";
+                return false;
             }
+            $query = "UPDATE data_siswa SET
+                nik = $nik,
+                nama_anak = '$nama_anak',
+                usia = $usia,
+                nama_ortu = '$nama_ortu',
+                alamat = '$alamat'
+            WHERE id_siswa = $id_siswa";
+
+            mysqli_query($conn, $query);
+
+            echo "<script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Data berhasil diupdate',
+                        showConfirmButton: false
+                    })
+                    setTimeout(function(){
+                        document.location.href = 'manajemenData.php';
+                    }, 1800);
+                </script>";
         }
         ?>
 </body>

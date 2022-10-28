@@ -14,14 +14,9 @@
     session_start();
     require 'config/functions.php';
 
-    if (!isset($_SESSION["login"])) {
-        header('location: login.php');
-        exit;
-    }
+    $id_siswa = $_GET["id_siswa"];
 
-    $id = $_GET["id"];
-
-    if (delete($id) == 1) {
+    if (delete($id_siswa) == 1) {
         echo "<script>
                 Swal.fire({
                     icon: 'success',

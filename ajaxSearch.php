@@ -38,8 +38,8 @@ $result = select("SELECT * FROM data_siswa WHERE
             <td><?= number_format($row["auditori"], 0) . "%" ?></td>
             <td><?= number_format($row["kinestetik"], 0) . "%" ?></td>
             <td class="aksi">
-                <a href="update.php?id=<?= $row["id"]; ?>" class="update"><button><i class="fas fa-regular fa-pen"></i></button></a>
-                <a href="delete.php?id=<?= $row["id"]; ?>" class="delete"><button><i class="fas fa-regular fa-trash"></i></button></a>
+                <a href="update.php?id_siswa=<?= $row["id_siswa"]; ?>" class="update"><button><i class="fas fa-regular fa-pen"></i></button></a>
+                <a href="delete.php?id_siswa=<?= $row["id_siswa"]; ?>" class="delete"><button><i class="fas fa-regular fa-trash"></i></button></a>
             </td>
         </tr>
         <?php $i++; ?>

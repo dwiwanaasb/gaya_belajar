@@ -32,11 +32,11 @@ if (!isset($_SESSION["login"])) {
                     <p>Silahkan isi data-data berikut ini untuk mengetahui gaya belajar siswa.</p>
                 </div>
                 <div class="right">
-                    <a href="manajemenData.php" class="manajemen"><button>Manajemen Data</button></a>
-                    <a href="logout.php" class="login"><button>Logout</button></a>
+                    <a href="manajemenData.php" class="manajemen" id="manajemen"><button>Manajemen Data</button></a>
+                    <a href="logout.php" class="login" id="logout"><button>Logout</button></a>
                 </div>
             </div>
-            <div class="content">
+            <div class="content form">
                 <form action="" method="post" name="form-data" id="form-data">
                     <div class="form-input">
                         <label for="">NIK</label>
@@ -71,7 +71,7 @@ if (!isset($_SESSION["login"])) {
             <div class="ques" id="ques">
                 <div class="btn-back">
                     <form action="" method="post">
-                        <button type="submit" class="back" name="back" id="back">Batalkan Evaluasi</button>
+                        <button type="submit" class="back" name="back" id="back">Batalkan evaluasi</button>
                     </form>
                 </div>
 
@@ -81,7 +81,7 @@ if (!isset($_SESSION["login"])) {
                         <div class="title">
                             <h3>Pertanyaan Visual</h3>
                         </div>
-                        <div class="content">
+                        <div class="content form">
                             <div class="form-ques">
                                 <label for="">Anak selalu terlihat rapi (menyusun kembali barang yang telah digunakan).</label>
                                 <div class="radio-area">
@@ -217,7 +217,7 @@ if (!isset($_SESSION["login"])) {
                         <div class="title">
                             <h3>Pertanyaan Auditori</h3>
                         </div>
-                        <div class="content">
+                        <div class="content form">
                             <div class="form-ques">
                                 <label for="">Anak mudah terganggu dengan keramaian saat belajar.</label>
                                 <div class="radio-area">
@@ -351,7 +351,7 @@ if (!isset($_SESSION["login"])) {
                         <div class="title">
                             <h3>Pertanyaan Kinestetik</h3>
                         </div>
-                        <div class="content">
+                        <div class="content form">
                             <div class="form-ques">
                                 <label for="">Anak terlihat aktif.</label>
                                 <div class="radio-area">
@@ -514,6 +514,8 @@ if (!isset($_SESSION["login"])) {
                     $('#ques').css('justify-content', 'center');
                     $('#ques').css('align-items', 'center');
                     $('#ques').css('flex-direction', 'column');
+                    $('#manajemen').css('display', 'none');
+                    $('#logout').css('display', 'none');
                 </script>";
             mysqli_query($conn, "INSERT INTO data_siswa (nik, nama_anak, usia, nama_ortu, alamat) 
                         VALUES ($nik, '$nama_anak', $usia, '$nama_ortu', '$alamat')");
@@ -532,6 +534,8 @@ if (!isset($_SESSION["login"])) {
                     $('#ques').css('justify-content', 'center');
                     $('#ques').css('align-items', 'center');
                     $('#ques').css('flex-direction', 'column');
+                    $('#manajemen').css('display', 'none');
+                    $('#logout').css('display', 'none');
             </script>";
             mysqli_query($conn, "UPDATE data_siswa SET nama_anak = '$nama_anak', usia = $usia, nama_ortu = '$nama_ortu', alamat = '$alamat' WHERE nik = $nik");
             $_SESSION['id_siswa'] = '';

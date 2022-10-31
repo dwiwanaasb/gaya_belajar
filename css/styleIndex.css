@@ -159,15 +159,6 @@ select:focus {
 }
 
 .area .container .table-area {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   max-height: 500px;
   max-width: 100%;
   overflow: auto;
@@ -289,6 +280,14 @@ select:focus {
   font-size: 13px;
 }
 
+.area .container .content form .form-input.nik {
+  cursor: not-allowed;
+}
+
+.area .container .content form .form-input.nik input.inputNik {
+  pointer-events: none;
+}
+
 .area .container .content form .form-button {
   margin-top: 20px;
   display: -webkit-box;
@@ -326,6 +325,10 @@ select:focus {
 
 .area .container .content .image img {
   width: 380px;
+}
+
+.area .container .content.form {
+  max-height: none;
 }
 
 .area .container .ques {
@@ -478,6 +481,9 @@ select:focus {
   .area .container {
     width: 90%;
   }
+  .area .container .header .left {
+    width: 50%;
+  }
   .area .container .content .image img {
     width: 350px;
   }
@@ -506,6 +512,9 @@ select:focus {
   .area .container .content .image img {
     width: 80%;
   }
+  .area .container .search input {
+    width: 70%;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -515,6 +524,22 @@ select:focus {
   .area .container {
     width: 90%;
     padding: 20px;
+  }
+  .area .container .header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .area .container .header .left,
+  .area .container .header .right {
+    width: 100%;
+  }
+  .area .container .header .right {
+    margin-bottom: 10px;
+  }
+  .area .container .search input {
+    width: 80%;
   }
 }
 /*# sourceMappingURL=styleIndex.css.map */

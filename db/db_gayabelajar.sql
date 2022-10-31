@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2022 at 04:33 AM
+-- Generation Time: Oct 29, 2022 at 04:16 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `data_siswa` (
-  `id` int(11) NOT NULL,
+  `id_siswa` int(11) NOT NULL,
   `nik` int(11) NOT NULL,
   `nama_anak` varchar(255) NOT NULL,
   `usia` int(11) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `data_siswa` (
 --
 
 CREATE TABLE `kuesioner` (
-  `id` int(11) NOT NULL,
+  `id_kuesioner` int(11) NOT NULL,
   `siswa_id` int(11) NOT NULL,
   `ques1v` varchar(255) NOT NULL,
   `ques2v` varchar(255) NOT NULL,
@@ -92,13 +92,13 @@ INSERT INTO `users` (`id`, `username`, `password`) VALUES
 -- Indexes for table `data_siswa`
 --
 ALTER TABLE `data_siswa`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_siswa`);
 
 --
 -- Indexes for table `kuesioner`
 --
 ALTER TABLE `kuesioner`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_kuesioner`),
   ADD KEY `data_kuesioner` (`siswa_id`);
 
 --
@@ -115,13 +115,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `data_siswa`
 --
 ALTER TABLE `data_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `kuesioner`
 --
 ALTER TABLE `kuesioner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kuesioner` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -137,7 +137,7 @@ ALTER TABLE `users`
 -- Constraints for table `kuesioner`
 --
 ALTER TABLE `kuesioner`
-  ADD CONSTRAINT `data_kuesioner` FOREIGN KEY (`siswa_id`) REFERENCES `data_siswa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `data_kuesioner` FOREIGN KEY (`siswa_id`) REFERENCES `data_siswa` (`id_siswa`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -73,9 +73,6 @@
         }
 
         .table-area {
-            display: flex;
-            align-items: center;
-            justify-content: center;
             max-height: 500px;
             max-width: 100%;
             overflow: auto;
@@ -178,6 +175,14 @@
                     }
                 }
 
+                .form-input.nik {
+                    cursor: not-allowed;
+
+                    input.inputNik {
+                        pointer-events: none;
+                    }
+                }
+
                 .form-button {
                     margin-top: 20px;
                     display: flex;
@@ -204,6 +209,10 @@
                     width: 380px;
                 }
             }
+        }
+
+        .content.form {
+            max-height: none;
         }
 
         .ques {
@@ -311,6 +320,13 @@
     .area {
         .container {
             width: 90%;
+
+            .header {
+                .left {
+                    width: 50%;
+                }
+            }
+
             .content {
                 .image {
                     img {
@@ -344,6 +360,12 @@
                     }
                 }
             }
+
+            .search {
+                input {
+                    width: 70%;
+                }
+            }
         }
     }
 }
@@ -354,8 +376,26 @@
 
         .container {
             width: 90%;
-
             padding: 20px;
+
+            .header {
+                flex-direction: column;
+
+                .left,
+                .right {
+                    width: 100%;
+                }
+
+                .right {
+                    margin-bottom: 10px;
+                }
+            }
+
+            .search {
+                input {
+                    width: 80%;
+                }
+            }
         }
     }
 }

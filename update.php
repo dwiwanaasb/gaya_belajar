@@ -39,9 +39,9 @@ $data = select("SELECT * FROM data_siswa WHERE id_siswa = $id_siswa")[0];
             <div class="content">
                 <form action="" method="post" name="form-data" id="form-data">
                     <input type="hidden" name="id_siswa" value="<?= $data["id_siswa"]; ?>">
-                    <div class="form-input">
+                    <div class="form-input nik">
                         <label for="">NIK</label>
-                        <input type="number" name="nik" id="nik" placeholder="Masukkan nik..." value="<?= $data["nik"]; ?>" autocomplete="off" required>
+                        <input class="inputNik" type="number" name="nik" id="nik" placeholder="Masukkan nik..." value="<?= $data["nik"]; ?>" autocomplete="off" readonly required>
                     </div>
                     <div class="form-input">
                         <label for="">Nama Anak</label>
@@ -75,22 +75,6 @@ $data = select("SELECT * FROM data_siswa WHERE id_siswa = $id_siswa")[0];
             $nama_ortu = htmlspecialchars($_POST["nama_ortu"]);
             $alamat = htmlspecialchars($_POST["alamat"]);
 
-            $result = mysqli_query($conn, "SELECT nik FROM data_siswa WHERE nik = $nik");
-
-            if (mysqli_fetch_assoc($result)) {
-                echo "<script>
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Terjadi kesalahan',
-                            showConfirmButton: false,
-                            text: 'Data siswa ini telah terdaftar sebelumnya!'
-                        })
-                        setTimeout(function(){
-                            document.location.href = 'manajemenData.php';
-                        }, 1500);
-                    </script>";
-                return false;
-            }
             $query = "UPDATE data_siswa SET
                 nik = $nik,
                 nama_anak = '$nama_anak',

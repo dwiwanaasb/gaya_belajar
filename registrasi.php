@@ -1,11 +1,6 @@
 <?php
 session_start();
 require 'config/functions.php';
-
-if (!isset($_SESSION["login"])) {
-    header('location: login.php');
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +38,7 @@ if (!isset($_SESSION["login"])) {
                     </div>
                     <div class="form-input">
                         <label for="">Konfirmasi Password</label>
-                        <input type="password" name="cpassword" id="id_cpassword" placeholder="Masukkan password..." autocomplete="off" required>
+                        <input type="password" name="cpassword" id="id_cpassword" placeholder="Masukkan konfirmasi password..." autocomplete="off" required>
                         <i class="fa-regular fa-eye" id="toggleCPassword"></i>
                     </div>
                     <div class="form-button">

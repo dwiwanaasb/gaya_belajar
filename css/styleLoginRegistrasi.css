@@ -41,7 +41,8 @@ button:hover {
           filter: brightness(97%);
 }
 
-input {
+input,
+select {
   border: 0;
   outline: 0;
   border: 1px solid #ced4da;
@@ -140,6 +141,14 @@ select:focus {
   color: #858585;
   top: 36px;
   right: 16px;
+}
+
+.area .container .content .form-input.not {
+  cursor: not-allowed;
+}
+
+.area .container .content .form-input.not .pointer {
+  pointer-events: none;
 }
 
 .area .container .content .form-button {

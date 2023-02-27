@@ -41,7 +41,8 @@ button:hover {
           filter: brightness(97%);
 }
 
-input {
+input,
+select {
   border: 0;
   outline: 0;
   border: 1px solid #ced4da;
@@ -121,29 +122,59 @@ select:focus {
   font-size: 100px;
 }
 
-.area .container .header p {
+.area .container .header .right .dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 28px;
+}
+
+.area .container .header .right .dropdown .drop {
+  cursor: pointer;
+}
+
+.area .container .header .right .dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 180px;
+  -webkit-box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.area .container .header .right .dropdown .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  display: block;
+  font-size: 14px;
+}
+
+.area .container .header .right .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.area .container .header .right .dropdown:hover .dropdown-content a:hover {
+  background-color: #eeeeee;
+}
+
+.area .container .header .right p {
   margin: 20px 0;
   font-size: 14px;
   color: #495057;
 }
 
-.area .container .header a.login button,
-.area .container .header a.manajemen button,
-.area .container .header a.home button {
+.area .container .header .right a.login button,
+.area .container .header .right a.manajemen button,
+.area .container .header .right a.home button {
   color: white;
   padding: 10px 12px;
 }
 
-.area .container .header a.login button {
+.area .container .header .right a.login button {
   background-color: #dc3545;
 }
 
-.area .container .header a.manajemen button {
-  background-color: #ffc107;
-  margin-right: 10px;
-}
-
-.area .container .header a.home button {
+.area .container .header .right a.home button {
   background-color: #198754;
 }
 
@@ -186,7 +217,7 @@ select:focus {
 
 .area .container .table-area table tr td {
   font-size: 14px;
-  padding: 4px 12px;
+  padding: 4px;
 }
 
 .area .container .table-area table tr td.aksi {
@@ -199,19 +230,17 @@ select:focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 .area .container .table-area table tr td.aksi a.update,
-.area .container .table-area table tr td.aksi a.delete {
+.area .container .table-area table tr td.aksi a.delete,
+.area .container .table-area table tr td.aksi a.view {
   margin: 4px;
 }
 
 .area .container .table-area table tr td.aksi a.update button,
-.area .container .table-area table tr td.aksi a.delete button {
+.area .container .table-area table tr td.aksi a.delete button,
+.area .container .table-area table tr td.aksi a.view button {
   font-size: 14px;
   color: white;
   border-radius: 50%;
@@ -225,6 +254,10 @@ select:focus {
 
 .area .container .table-area table tr td.aksi a.delete button {
   background-color: #dc3545;
+}
+
+.area .container .table-area table tr td.aksi a.view button {
+  background-color: #929292;
 }
 
 .area .container .table-area table tr th,

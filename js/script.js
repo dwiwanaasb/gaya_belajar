@@ -1,4 +1,4 @@
-$(function () {
+$(document).ready(function () {
     const togglePassword = $('#togglePassword');
     const password = $('#id_password');
     const toggleCPassword = $('#toggleCPassword');

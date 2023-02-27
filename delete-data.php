@@ -16,7 +16,7 @@
 
     $id_siswa = $_GET["id_siswa"];
 
-    if (delete($id_siswa) == 1) {
+    if (deleteData($id_siswa) == 1) {
         echo "<script>
                 Swal.fire({
                     icon: 'success',
@@ -24,7 +24,7 @@
                     showConfirmButton: false
                 })
                 setTimeout(function(){
-                    document.location.href = 'manajemenData.php';
+                    document.location.href = 'manajemen-data.php';
                 }, 1800);
             </script>";
     } else {
@@ -36,7 +36,7 @@
                     text: 'Data gagal dihapus!'
                 })
                 setTimeout(function(){
-                    document.location.href = 'manajemenData.php';
+                    document.location.href = 'manajemen-data.php';
                 }, 1500);
             </script>";
     }

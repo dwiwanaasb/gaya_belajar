@@ -35,7 +35,8 @@ button:hover {
     filter: brightness(97%);
 }
 
-input {
+input,
+select {
     border: 0;
     outline: 0;
     border: 1px solid #ced4da;

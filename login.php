@@ -69,7 +69,7 @@ if (isset($_SESSION["login"])) {
                         icon: 'success',
                         title: 'Login berhasil',
                         showConfirmButton: false,
-                        text: 'Selamat datang ${username}!'
+                        text: 'Selamat datang {$username}!'
                     })
                     setTimeout(function(){
                         document.location.href = 'index.php';

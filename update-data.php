@@ -33,7 +33,7 @@ $data = select("SELECT * FROM data_siswa WHERE id_siswa = $id_siswa")[0];
                     <p>Halaman update data siswa.</p>
                 </div>
                 <div class="right">
-                    <a href="manajemenData.php" class="home"><button>Kembali ke tabel</button></a>
+                    <a href="manajemen-data.php" class="home"><button>Kembali ke tabel</button></a>
                 </div>
             </div>
             <div class="content">
@@ -92,7 +92,7 @@ $data = select("SELECT * FROM data_siswa WHERE id_siswa = $id_siswa")[0];
                         showConfirmButton: false
                     })
                     setTimeout(function(){
-                        document.location.href = 'manajemenData.php';
+                        document.location.href = 'manajemen-data.php';
                     }, 1800);
                 </script>";
         }

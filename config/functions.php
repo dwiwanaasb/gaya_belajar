@@ -13,11 +13,21 @@ function select($query)
     return $rows;
 }
 
-function delete($id_siswa)
+function deleteData($id_siswa)
 {
     global $conn;
 
     $query = "DELETE FROM data_siswa WHERE id_siswa = $id_siswa";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+}
+
+function deleteCiri($id_ciri)
+{
+    global $conn;
+
+    $query = "DELETE FROM ciri WHERE id_ciri = $id_ciri";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);

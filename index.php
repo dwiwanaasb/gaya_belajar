@@ -17,6 +17,7 @@ if (!isset($_SESSION["login"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styleIndex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/sweetalert2.all.min.js"></script>
     <title>Halaman Utama</title>
@@ -32,7 +33,14 @@ if (!isset($_SESSION["login"])) {
                     <p>Silahkan isi data-data berikut ini untuk mengetahui gaya belajar siswa.</p>
                 </div>
                 <div class="right">
-                    <a href="manajemenData.php" class="manajemen" id="manajemen"><button>Manajemen Data</button></a>
+                    <div class="dropdown" id="dropdown">
+                        <span class="drop">Menu <i class="fas fa-regular fa-chevron-down"></i></span>
+                        <div class="dropdown-content">
+                            <a href="gaya-belajar.php">Gaya Belajar</a>
+                            <a href="basis-pengetahuan.php">Basis Pengetahuan</a>
+                            <a href="manajemen-data.php">Manajemen Data</a>
+                        </div>
+                    </div>
                     <a href="logout.php" class="login" id="logout"><button>Logout</button></a>
                 </div>
             </div>
@@ -76,411 +84,53 @@ if (!isset($_SESSION["login"])) {
                 </div>
 
                 <form action="" method="post">
-                    <div class="quesItem">
-                        <!-- Pertanyaan Visual -->
-                        <div class="title">
-                            <h3>Pertanyaan Visual</h3>
-                        </div>
-                        <div class="content form">
-                            <div class="form-ques">
-                                <label for="">Anak selalu terlihat rapi (menyusun kembali barang yang telah digunakan).</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1v" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1v" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1v" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1v" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1v" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
+                    <?php $gaya = select("SELECT * FROM gaya"); ?>
+                    <?php foreach ($gaya as $gayaVal) : ?>
+                        <?php
+                        $gaya_id = $gayaVal["id_gaya"];
+                        $ciri = select("SELECT * FROM ciri WHERE gaya_id = $gaya_id");
+                        $gayaName = $gayaVal["gaya"];
+                        ?>
+                        <div class="quesItem">
+                            <div class="title">
+                                <h3>Pertanyaan <?= $gayaVal['gaya']; ?></h3>
                             </div>
-                            <div class="form-ques">
-                                <label for="">Anak suka dengan gambaran/menggambar.</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2v" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2v" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2v" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2v" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2v" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-ques">
-                                <label for="">Anak suka belajar dari video.</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3v" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3v" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3v" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3v" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3v" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-ques">
-                                <label for="">Anak lebih suka membaca dari pada dibacakan.</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4v" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4v" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4v" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4v" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4v" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-ques">
-                                <label for="">Anak selalu memperhatikan penampilannya</label>
-                                <div class="radio-area">
-                                    <div class="radio-area">
-                                        <div class="radio-btn">
-                                            <input type="radio" name="ques5v" value=1 required>
-                                            <label for="">Sangat Baik</label>
-                                        </div>
-                                        <div class="radio-btn">
-                                            <input type="radio" name="ques5v" value=0.8>
-                                            <label for="">Baik</label>
-                                        </div>
-                                        <div class="radio-btn">
-                                            <input type="radio" name="ques5v" value=0.6>
-                                            <label for="">Cukup</label>
-                                        </div>
-                                        <div class="radio-btn">
-                                            <input type="radio" name="ques5v" value=0.4>
-                                            <label for="">Kurang</label>
-                                        </div>
-                                        <div class="radio-btn">
-                                            <input type="radio" name="ques5v" value=0>
-                                            <label for="">Tidak</label>
+                            <div class="content form">
+                                <?php $i = 1; ?>
+                                <?php foreach ($ciri as $ciriVal) : ?>
+                                    <?php $var = 'ques' . $i . $gayaName; ?>
+                                    <div class="form-ques">
+                                        <label for=""><?= $ciriVal["ciri"] ?></label>
+                                        <div class="radio-area">
+                                            <div class="radio-btn">
+                                                <input type="radio" name="<?= $var; ?>" value=1 required>
+                                                <label for="">Sangat Baik</label>
+                                            </div>
+                                            <div class="radio-btn">
+                                                <input type="radio" name="<?= $var; ?>" value=0.8>
+                                                <label for="">Baik</label>
+                                            </div>
+                                            <div class="radio-btn">
+                                                <input type="radio" name="<?= $var; ?>" value=0.6>
+                                                <label for="">Cukup</label>
+                                            </div>
+                                            <div class="radio-btn">
+                                                <input type="radio" name="<?= $var; ?>" value=0.4>
+                                                <label for="">Kurang</label>
+                                            </div>
+                                            <div class="radio-btn">
+                                                <input type="radio" name="<?= $var; ?>" value=0>
+                                                <label for="">Tidak</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                    <?php $i++; ?>
+                                <?php endforeach; ?>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="quesItem">
-                        <!-- Pertanyaan Auditori -->
-                        <div class="title">
-                            <h3>Pertanyaan Auditori</h3>
-                        </div>
-                        <div class="content form">
-                            <div class="form-ques">
-                                <label for="">Anak mudah terganggu dengan keramaian saat belajar.</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1a" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1a" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1a" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1a" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1a" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-ques">
-                                <label for="">Anak berani berbicara didepan banyak orang.</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2a" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2a" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2a" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2a" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2a" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-ques">
-                                <label for="">Anak suka berbicara sendiri saat belajar.</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3a" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3a" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3a" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3a" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3a" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-ques">
-                                <label for="">Anak mudah mengingat apa yang telah diinstruksikan dengan ucapan.</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4a" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4a" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4a" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4a" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4a" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-ques">
-                                <label for="">Anak suka musik dan bernyanyi.</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques5a" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques5a" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques5a" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques5a" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques5a" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="quesItem">
-                        <!-- Pertanyaan Kinestetik -->
-                        <div class="title">
-                            <h3>Pertanyaan Kinestetik</h3>
-                        </div>
-                        <div class="content form">
-                            <div class="form-ques">
-                                <label for="">Anak terlihat aktif.</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1k" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1k" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1k" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1k" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques1k" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-ques">
-                                <label for="">Anak lebih menyukai belajar secara langsung.</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2k" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2k" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2k" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2k" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques2k" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-ques">
-                                <label for="">Anak tidak bisa duduk diam dalam waktu lama.</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3k" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3k" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3k" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3k" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques3k" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-ques">
-                                <label for="">Anak menggunakan jari sebagai penunjuk saat membaca.</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4k" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4k" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4k" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4k" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques4k" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-ques">
-                                <label for="">Anak menyukai permainan dan olahraga.</label>
-                                <div class="radio-area">
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques5k" value=1 required>
-                                        <label for="">Sangat Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques5k" value=0.8>
-                                        <label for="">Baik</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques5k" value=0.6>
-                                        <label for="">Cukup</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques5k" value=0.4>
-                                        <label for="">Kurang</label>
-                                    </div>
-                                    <div class="radio-btn">
-                                        <input type="radio" name="ques5k" value=0>
-                                        <label for="">Tidak</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ques-button">
-                            <button type="submit" name="kirim-ques">Selanjutnya</button>
-                        </div>
+                    <?php endforeach; ?>
+                    <div class="ques-button">
+                        <button type="submit" name="kirim-ques">Selanjutnya</button>
                     </div>
                 </form>
             </div>
@@ -514,16 +164,19 @@ if (!isset($_SESSION["login"])) {
                     $('#ques').css('justify-content', 'center');
                     $('#ques').css('align-items', 'center');
                     $('#ques').css('flex-direction', 'column');
-                    $('#manajemen').css('display', 'none');
+                    $('#dropdown').css('display', 'none');
                     $('#logout').css('display', 'none');
                 </script>";
             mysqli_query($conn, "INSERT INTO data_siswa (nik, nama_anak, usia, nama_ortu, alamat) 
                         VALUES ($nik, '$nama_anak', $usia, '$nama_ortu', '$alamat')");
+            $last = select("SELECT * FROM data_siswa ORDER BY id_siswa DESC LIMIT 1")[0];
+            $_SESSION['id_siswa'] = '';
+            $_SESSION['id_siswa'] = $last["id_siswa"];
         } else {
             echo "<script>
                     Swal.fire({
                         icon: 'warning',
-                        title: 'Data siswa ini telah terdaftar dengan nama ${nama}!',
+                        title: 'Data siswa ini telah terdaftar dengan nama {$nama}!',
                         showConfirmButton: false,
                         text: 'Hasil evaluasi dan data siswa akan diperbarui',
                         timer: 2000
@@ -534,13 +187,12 @@ if (!isset($_SESSION["login"])) {
                     $('#ques').css('justify-content', 'center');
                     $('#ques').css('align-items', 'center');
                     $('#ques').css('flex-direction', 'column');
-                    $('#manajemen').css('display', 'none');
+                    $('#dropdown').css('display', 'none');
                     $('#logout').css('display', 'none');
             </script>";
             mysqli_query($conn, "UPDATE data_siswa SET nama_anak = '$nama_anak', usia = $usia, nama_ortu = '$nama_ortu', alamat = '$alamat' WHERE nik = $nik");
             $_SESSION['id_siswa'] = '';
             $_SESSION['id_siswa'] = $id_siswa;
-            $sessId = $_SESSION['id_siswa'];
         }
     }
     ?>
@@ -556,303 +208,87 @@ if (!isset($_SESSION["login"])) {
 
     <?php
     if (isset($_POST["kirim-ques"])) {
-        $ques1v = $_POST["ques1v"];
-        if ($ques1v == 1) {
-            $valques1v = 'Sangat Baik';
-        } else if ($ques1v == 0.8) {
-            $valques1v = 'Baik';
-        } else if ($ques1v == 0.6) {
-            $valques1v = 'Cukup';
-        } else if ($ques1v == 0.4) {
-            $valques1v = 'Kurang';
-        } else if ($ques1v == 0) {
-            $valques1v = 'Tidak';
+        $idSiswa = $_SESSION['id_siswa'];
+        $gaya = select("SELECT * FROM gaya");
+        foreach ($gaya as $gayaVal) {
+            $gayaName = $gayaVal["gaya"];
+            $gaya_id = $gayaVal["id_gaya"];
+            $ciri = select("SELECT * FROM ciri WHERE gaya_id = $gaya_id");
+            for ($i = 1, $j = 0; $i <= count($ciri); $i++, $j++) {
+                $var = 'ques' . $i . $gayaName;
+                ${'ques' . $i . $gayaName} = $_POST["$var"];
+                ${'valques' . $i . $gayaName} = $ciri[$j]["pakar"] * ${'ques' . $i . $gayaName};
+            }
+            for ($x = 1; $x < count($ciri); $x++) {
+                ${'resultvalques' . $x . $gayaName} = ${'valques' . $x . $gayaName} + ${'valques' . ($x + 1) . $gayaName} * (1 - ${'valques' . $x . $gayaName});
+                for ($y = 1; $y <= count($ciri) - 2; $y++) {
+                    ${'resultvalques' . ($y + 1) . $gayaName} = ${'resultvalques' . $y . $gayaName} + ${'valques' . ($y + 2) . $gayaName} * (1 - ${'resultvalques' . $y . $gayaName});
+                }
+                ${'persen' . $gayaName} = ${'resultvalques' . $y . $gayaName} * 100;
+                ${'persen' . $gayaName} = number_format(${'persen' . $gayaName}, 2);
+                $persenVal = ${'persen' . $gayaName};
+            }
+            mysqli_query($conn, "UPDATE data_siswa SET $gayaName = '$persenVal' WHERE id_siswa = $idSiswa");
         }
 
-        $ques2v = $_POST["ques2v"];
-        if ($ques2v == 1) {
-            $valques2v = 'Sangat Baik';
-        } else if ($ques2v == 0.8) {
-            $valques2v = 'Baik';
-        } else if ($ques2v == 0.6) {
-            $valques2v = 'Cukup';
-        } else if ($ques2v == 0.4) {
-            $valques2v = 'Kurang';
-        } else if ($ques2v == 0) {
-            $valques2v = 'Tidak';
+        $data = select("SELECT * FROM data_siswa WHERE id_siswa = $idSiswa")[0];
+        $arrVal = [];
+
+        foreach ($gaya as $gayaVal) {
+            $gayaName = $gayaVal["gaya"];
+            array_push($arrVal, $data["$gayaName"]);
         }
 
-        $ques3v = $_POST["ques3v"];
-        if ($ques3v == 1) {
-            $valques3v = 'Sangat Baik';
-        } else if ($ques3v == 0.8) {
-            $valques3v = 'Baik';
-        } else if ($ques3v == 0.6) {
-            $valques3v = 'Cukup';
-        } else if ($ques3v == 0.4) {
-            $valques3v = 'Kurang';
-        } else if ($ques3v == 0) {
-            $valques3v = 'Tidak';
+        array_unshift($arrVal, "");
+        unset($arrVal[0]);
+
+        $i = 0;
+        $j = 0;
+
+        foreach ($arrVal as $key => $value) {
+            if ($value > $i) {
+                $i = $value;
+                $j = $key;
+            }
         }
 
-        $ques4v = $_POST["ques4v"];
-        if ($ques4v == 1) {
-            $valques4v = 'Sangat Baik';
-        } else if ($ques4v == 0.8) {
-            $valques4v = 'Baik';
-        } else if ($ques4v == 0.6) {
-            $valques4v = 'Cukup';
-        } else if ($ques4v == 0.4) {
-            $valques4v = 'Kurang';
-        } else if ($ques4v == 0) {
-            $valques4v = 'Tidak';
+        $solusi = select("SELECT * FROM solusi WHERE gaya_id = $j");
+        $solusiVar = '';
+
+        $x = 1;
+        foreach ($solusi as $solusiItem) {
+            $solusiVal = $solusiItem['solusi'];
+            $solusiVar .= "$x. $solusiVal <br>";
+            $x++;
         }
 
-        $ques5v = $_POST["ques5v"];
-        if ($ques5v == 1) {
-            $valques5v = 'Sangat Baik';
-        } else if ($ques5v == 0.8) {
-            $valques5v = 'Baik';
-        } else if ($ques5v == 0.6) {
-            $valques5v = 'Cukup';
-        } else if ($ques5v == 0.4) {
-            $valques5v = 'Kurang';
-        } else if ($ques5v == 0) {
-            $valques5v = 'Tidak';
+        $nilaiVar = '';
+        $y = 0;
+        foreach ($gaya as $gayaVal) {
+            $gayaName = $gayaVal["gaya"];
+            array_push($arrVal, $data["$gayaName"]);
+
+            if ($y == 0) {
+                $nilaiVar .= $data["$gayaName"] . " % $gayaName, ";
+            }
+            $nilaiVar .= $data["$gayaName"] . " % $gayaName. ";
+            $y++;
         }
 
-        $ques1a = $_POST["ques1a"];
-        if ($ques1a == 1) {
-            $valques1a = 'Sangat Baik';
-        } else if ($ques1a == 0.8) {
-            $valques1a = 'Baik';
-        } else if ($ques1a == 0.6) {
-            $valques1a = 'Cukup';
-        } else if ($ques1a == 0.4) {
-            $valques1a = 'Kurang';
-        } else if ($ques1a == 0) {
-            $valques1a = 'Tidak';
-        }
-
-        $ques2a = $_POST["ques2a"];
-        if ($ques2a == 1) {
-            $valques2a = 'Sangat Baik';
-        } else if ($ques2a == 0.8) {
-            $valques2a = 'Baik';
-        } else if ($ques2a == 0.6) {
-            $valques2a = 'Cukup';
-        } else if ($ques2a == 0.4) {
-            $valques2a = 'Kurang';
-        } else if ($ques2a == 0) {
-            $valques2a = 'Tidak';
-        }
-
-        $ques3a = $_POST["ques3a"];
-        if ($ques3a == 1) {
-            $valques3a = 'Sangat Baik';
-        } else if ($ques3a == 0.8) {
-            $valques3a = 'Baik';
-        } else if ($ques3a == 0.6) {
-            $valques3a = 'Cukup';
-        } else if ($ques3a == 0.4) {
-            $valques3a = 'Kurang';
-        } else if ($ques3a == 0) {
-            $valques3a = 'Tidak';
-        }
-
-        $ques4a = $_POST["ques4a"];
-        if ($ques4a == 1) {
-            $valques4a = 'Sangat Baik';
-        } else if ($ques4a == 0.8) {
-            $valques4a = 'Baik';
-        } else if ($ques4a == 0.6) {
-            $valques4a = 'Cukup';
-        } else if ($ques4a == 0.4) {
-            $valques4a = 'Kurang';
-        } else if ($ques4a == 0) {
-            $valques4a = 'Tidak';
-        }
-
-        $ques5a = $_POST["ques5a"];
-        if ($ques5a == 1) {
-            $valques5a = 'Sangat Baik';
-        } else if ($ques5a == 0.8) {
-            $valques5a = 'Baik';
-        } else if ($ques5a == 0.6) {
-            $valques5a = 'Cukup';
-        } else if ($ques5a == 0.4) {
-            $valques5a = 'Kurang';
-        } else if ($ques5a == 0) {
-            $valques5a = 'Tidak';
-        }
-
-        $ques1k = $_POST["ques1k"];
-        if ($ques1k == 1) {
-            $valques1k = 'Sangat Baik';
-        } else if ($ques1k == 0.8) {
-            $valques1k = 'Baik';
-        } else if ($ques1k == 0.6) {
-            $valques1k = 'Cukup';
-        } else if ($ques1k == 0.4) {
-            $valques1k = 'Kurang';
-        } else if ($ques1k == 0) {
-            $valques1k = 'Tidak';
-        }
-
-        $ques2k = $_POST["ques2k"];
-        if ($ques2k == 1) {
-            $valques2k = 'Sangat Baik';
-        } else if ($ques2k == 0.8) {
-            $valques2k = 'Baik';
-        } else if ($ques2k == 0.6) {
-            $valques2k = 'Cukup';
-        } else if ($ques2k == 0.4) {
-            $valques2k = 'Kurang';
-        } else if ($ques2k == 0) {
-            $valques2k = 'Tidak';
-        }
-
-        $ques3k = $_POST["ques3k"];
-        if ($ques3k == 1) {
-            $valques3k = 'Sangat Baik';
-        } else if ($ques3k == 0.8) {
-            $valques3k = 'Baik';
-        } else if ($ques3k == 0.6) {
-            $valques3k = 'Cukup';
-        } else if ($ques3k == 0.4) {
-            $valques3k = 'Kurang';
-        } else if ($ques3k == 0) {
-            $valques3k = 'Tidak';
-        }
-
-        $ques4k = $_POST["ques4k"];
-        if ($ques4k == 1) {
-            $valques4k = 'Sangat Baik';
-        } else if ($ques4k == 0.8) {
-            $valques4k = 'Baik';
-        } else if ($ques4k == 0.6) {
-            $valques4k = 'Cukup';
-        } else if ($ques4k == 0.4) {
-            $valques4k = 'Kurang';
-        } else if ($ques4k == 0) {
-            $valques4k = 'Tidak';
-        }
-
-        $ques5k = $_POST["ques5k"];
-        if ($ques5k == 1) {
-            $valques5k = 'Sangat Baik';
-        } else if ($ques5k == 0.8) {
-            $valques5k = 'Baik';
-        } else if ($ques5k == 0.6) {
-            $valques5k = 'Cukup';
-        } else if ($ques5k == 0.4) {
-            $valques5k = 'Kurang';
-        } else if ($ques5k == 0) {
-            $valques5k = 'Tidak';
-        }
-
-        if (is_null($sessId)) {
-            $row = select("SELECT id_siswa FROM data_siswa ORDER BY id_siswa DESC")[0];
-            $id_siswa = $row["id_siswa"];
-            mysqli_query($conn, "INSERT INTO kuesioner (siswa_id, ques1v, ques2v, ques3v, ques4v, ques5v, ques1a, ques2a, ques3a, ques4a, ques5a, ques1k, ques2k, ques3k, ques4k, ques5k) 
-                        VALUES ($id_siswa, '$valques1v','$valques2v','$valques3v','$valques4v','$valques5v','$valques1a','$valques2a','$valques3a','$valques4a','$valques5a','$valques1k','$valques2k','$valques3k','$valques4k','$valques5k')");
-            $data = select("SELECT * FROM kuesioner ORDER BY id_kuesioner DESC LIMIT 1")[0];
-            $idSiswa = $data["siswa_id"];
-        } else {
-            mysqli_query($conn, "UPDATE kuesioner SET 
-                        ques1v = '$valques1v', 
-                        ques2v = '$valques2v', 
-                        ques3v = '$valques3v',
-                        ques4v = '$valques4v', 
-                        ques5v = '$valques5v', 
-                        ques1a = '$valques1a', 
-                        ques2a = '$valques2a', 
-                        ques3a = '$valques3a', 
-                        ques4a = '$valques4a', 
-                        ques5a = '$valques5a',
-                        ques1k = '$valques1k', 
-                        ques2k = '$valques2k', 
-                        ques3k = '$valques3k',
-                        ques4k = '$valques4k', 
-                        ques5k = '$valques5k'
-                        WHERE siswa_id = $sessId");
-            $idSiswa = $sessId;
-        }
-
-        $data_siswa = select("SELECT * FROM data_siswa WHERE id_siswa = $idSiswa")[0];
-        $nama = $data_siswa["nama_anak"];
-        $usia = $data_siswa["usia"];
-
-        $dataVisual1 = $data["ques1v"];
-        $dataVisual2 = $data["ques2v"];
-        $dataVisual3 = $data["ques3v"];
-        $dataVisual4 = $data["ques4v"];
-        $dataVisual5 = $data["ques5v"];
-
-        $dataAuditori1 = $data["ques1a"];
-        $dataAuditori2 = $data["ques2a"];
-        $dataAuditori3 = $data["ques3a"];
-        $dataAuditori4 = $data["ques4a"];
-        $dataAuditori5 = $data["ques5a"];
-
-        $dataKinestetik1 = $data["ques1k"];
-        $dataKinestetik2 = $data["ques2k"];
-        $dataKinestetik3 = $data["ques3k"];
-        $dataKinestetik4 = $data["ques4k"];
-        $dataKinestetik5 = $data["ques5k"];
-
-        $ques1v = 0.7 * $ques1v;
-        $ques2v = 0.8 * $ques2v;
-        $ques3v = 0.6 * $ques3v;
-        $ques4v = 0.8 * $ques4v;
-        $ques5v = 0.4 * $ques5v;
-        $ques1a = 0.6 * $ques1a;
-        $ques2a = 0.6 * $ques2a;
-        $ques3a = 0.7 * $ques3a;
-        $ques4a = 0.8 * $ques4a;
-        $ques5a = 0.6 * $ques5a;
-        $ques1k = 0.8 * $ques1k;
-        $ques2k = 0.6 * $ques2k;
-        $ques3k = 0.6 * $ques3k;
-        $ques4k = 0.7 * $ques4k;
-        $ques5k = 0.4 * $ques5k;
-
-        $resultQues1v = $ques1v + $ques2v * (1 - $ques1v);
-        $resultQues2v = $resultQues1v + $ques3v * (1 - $resultQues1v);
-        $resultQues3v = $resultQues2v + $ques4v * (1 - $resultQues2v);
-        $resultQues4v = $resultQues3v + $ques5v * (1 - $resultQues3v);
-        $persenVisual = $resultQues4v * 100;
-        $persenVisual = number_format($persenVisual, 2);
-
-        $resultQues1a = $ques1a + $ques2a * (1 - $ques1a);
-        $resultQues2a = $resultQues1a + $ques3a * (1 - $resultQues1a);
-        $resultQues3a = $resultQues2a + $ques4a * (1 - $resultQues2a);
-        $resultQues4a = $resultQues3a + $ques5a * (1 - $resultQues3a);
-        $persenAuditori = $resultQues4a * 100;
-        $persenAuditori = number_format($persenAuditori, 2);
-
-        $resultQues1k = $ques1k + $ques2k * (1 - $ques1k);
-        $resultQues2k = $resultQues1k + $ques3k * (1 - $resultQues1k);
-        $resultQues3k = $resultQues2k + $ques4k * (1 - $resultQues2k);
-        $resultQues4k = $resultQues3k + $ques5k * (1 - $resultQues3k);
-        $persenKinestetik = $resultQues4k * 100;
-        $persenKinestetik = number_format($persenKinestetik, 2);
-
-        mysqli_query($conn, "UPDATE data_siswa SET visual = '$persenVisual', auditori = '$persenAuditori', kinestetik = '$persenKinestetik' WHERE id_siswa = $idSiswa");
-        $hasil = "Hasil evaluasi gaya belajar siswa dengan nama " . $nama . ", usia " . $usia . " tahun adalah " . $persenVisual . " % Visual, " . $persenAuditori . " % Auditori, dan " . $persenKinestetik . " % Kinestetik.";
+        $hasil = 'Hasil evaluasi gaya belajar siswa dengan nama ' . $data["nama_anak"] . ', usia ' . $data["usia"] . ' tahun adalah ' . $nilaiVar . '<br><br> <div style="text-align: left;"><b>Solusi:</b> <br>' . $solusiVar . '</div>';
 
         echo "<script>
                 Swal.fire({
                     icon: 'success',
+                    width: 700,
                     title: 'Proses evaluasi berhasil!',
                     showConfirmButton: true,
-                    text: '${hasil}'
+                    html: '$hasil'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         document.location.href = 'index.php';
                     }
                 })
-
             </script>";
     ?>
     <?php } ?>

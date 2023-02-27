@@ -49,6 +49,14 @@
                 }
             }
 
+            .form-input.not {
+                cursor: not-allowed;
+
+                .pointer {
+                    pointer-events: none;
+                }
+            }
+
             .form-button {
                 margin-top: 20px;
                 display: flex;

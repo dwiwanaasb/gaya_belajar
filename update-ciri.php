@@ -45,7 +45,7 @@ $data = select("SELECT * FROM ciri WHERE id_ciri = $id_ciri")[0];
                     </div>
                     <div class="form-input">
                         <label for="gaya">Gaya Belajar</label>
-                        <select name="gaya" id="gaya">
+                        <select name="gaya" id="gaya" required>
                             <?php $gaya = select("SELECT * FROM gaya"); ?>
                             <?php $id_gaya = $data["gaya_id"]; ?>
                             <?php $gayaVal = select("SELECT gaya FROM gaya WHERE id_gaya = $id_gaya")[0]; ?>

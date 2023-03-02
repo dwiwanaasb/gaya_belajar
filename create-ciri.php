@@ -37,7 +37,7 @@ if (!isset($_SESSION["login"])) {
                     </div>
                     <div class="form-input">
                         <label for="gaya">Gaya Belajar</label>
-                        <select name="gaya" id="gaya">
+                        <select name="gaya" id="gaya" required>
                             <?php $gaya = select("SELECT * FROM gaya"); ?>
                             <option value="" selected disabled>Pilih</option>
                             <?php foreach ($gaya as $row) : ?>

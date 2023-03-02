@@ -21,7 +21,7 @@ $data = select("SELECT * FROM data_siswa WHERE id_siswa = $id_siswa")[0];
     <link rel="stylesheet" href="css/styleIndex.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/sweetalert2.all.min.js"></script>
-    <title>Halaman Utama</title>
+    <title>Halaman Update Data</title>
 </head>
 
 <body>

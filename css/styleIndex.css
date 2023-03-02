@@ -269,6 +269,16 @@ select:focus {
   background-color: #f2f2f2;
 }
 
+.area .container .footer {
+  margin-top: 20px;
+}
+
+.area .container .footer .tambah button {
+  background-color: #198754;
+  color: white;
+  padding: 10px 14px;
+}
+
 .area .container .content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -318,6 +328,14 @@ select:focus {
 }
 
 .area .container .content form .form-input.nik input.inputNik {
+  pointer-events: none;
+}
+
+.area .container .content form .form-input.not {
+  cursor: not-allowed;
+}
+
+.area .container .content form .form-input.not .pointer {
   pointer-events: none;
 }
 

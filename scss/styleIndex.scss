@@ -183,6 +183,17 @@
             }
         }
 
+        .footer {
+            margin-top: 20px;
+            .tambah {
+                button {
+                    background-color: $success;
+                    color: white;
+                    padding: 10px 14px;
+                }
+            }
+        }
+
         .content {
             display: flex;
             align-items: center;
@@ -218,6 +229,14 @@
                     cursor: not-allowed;
 
                     input.inputNik {
+                        pointer-events: none;
+                    }
+                }
+
+                .form-input.not {
+                    cursor: not-allowed;
+
+                    .pointer {
                         pointer-events: none;
                     }
                 }

@@ -23,7 +23,7 @@ $result = select("SELECT * FROM ciri");
     <script src="js/sweetalert2.all.min.js"></script>
     <script src="js/ajaxBasis.js"></script>
     <script src="js/script.js"></script>
-    <title>Halaman Gaya Belajar</title>
+    <title>Halaman Basis Pengetahuan</title>
 </head>
 
 <body>
@@ -70,6 +70,9 @@ $result = select("SELECT * FROM ciri");
                         <?php $i++; ?>
                     <?php endforeach; ?>
                 </table>
+            </div>
+            <div class="footer">
+                <a href="create-ciri.php" class="tambah"><button><i class="fa fa-regular fa-plus"></i> Tambah ciri</button></a>
             </div>
         </div>
     </div>

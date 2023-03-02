@@ -29,18 +29,19 @@ if (!isset($_SESSION["login"])) {
             <div class="header">
                 <h2>Tambah Ciri</h2>
             </div>
-            <div class="content">
+            <div class="content ciri">
                 <form action="" method="post">
                     <div class="form-input">
                         <label for="ciri">Ciri Ciri</label>
                         <input type="text" name="ciri" id="ciri" autocomplete="off" required>
                     </div>
                     <div class="form-input">
-                        <label for="jenis">Jenis</label>
-                        <select name="jenis" id="jenis">
-                            <?php $jenis = select("SELECT * FROM jenis"); ?>
-                            <?php foreach ($jenis as $row) : ?>
-                                <option value="<?= $row["jenis"] ?>"><?= $row["jenis"] ?></option>
+                        <label for="gaya">Gaya Belajar</label>
+                        <select name="gaya" id="gaya">
+                            <?php $gaya = select("SELECT * FROM gaya"); ?>
+                            <option value="" selected disabled>Pilih</option>
+                            <?php foreach ($gaya as $row) : ?>
+                                <option value="<?= $row["gaya"] ?>"><?= $row["gaya"] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -93,8 +94,7 @@ if (!isset($_SESSION["login"])) {
     <?php
     if (isset($_POST["tambah"])) {
         $ciri = htmlspecialchars($_POST['ciri']);
-        $jenis = htmlspecialchars($_POST['jenis']);
-
+        $gaya = htmlspecialchars($_POST['gaya']);
         $mb = htmlspecialchars($_POST['mb']);
         $mb = doubleval($mb);
         $md = htmlspecialchars($_POST['md']);
@@ -102,10 +102,10 @@ if (!isset($_SESSION["login"])) {
         $pakar = htmlspecialchars($_POST['pakar']);
         $pakar = doubleval($pakar);
 
-        $jenis_id = select("SELECT * FROM jenis WHERE jenis = '$jenis'")[0];
-        $jenis_id = $jenis_id["id_jenis"];
+        $gaya_id = select("SELECT * FROM gaya WHERE gaya = '$gaya'")[0];
+        $gaya_id = $gaya_id["id_gaya"];
 
-        mysqli_query($conn, "INSERT INTO ciri (ciri, jenis_id, mb, md, pakar) VALUES ('$ciri','$jenis_id','$mb','$md','$pakar')");
+        mysqli_query($conn, "INSERT INTO ciri (ciri, gaya_id, mb, md, pakar) VALUES ('$ciri','$gaya_id','$mb','$md','$pakar')");
         echo "<script>
                     Swal.fire({
                         icon: 'success',

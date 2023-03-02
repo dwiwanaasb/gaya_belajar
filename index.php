@@ -36,8 +36,8 @@ if (!isset($_SESSION["login"])) {
                     <div class="dropdown" id="dropdown">
                         <span class="drop">Menu <i class="fas fa-regular fa-chevron-down"></i></span>
                         <div class="dropdown-content">
-                            <a href="gaya-belajar.php">Gaya Belajar</a>
                             <a href="basis-pengetahuan.php">Basis Pengetahuan</a>
+                            <a href="gaya-belajar.php">Gaya Belajar</a>
                             <a href="manajemen-data.php">Manajemen Data</a>
                         </div>
                     </div>
@@ -115,7 +115,7 @@ if (!isset($_SESSION["login"])) {
                                                 <label for="">Cukup</label>
                                             </div>
                                             <div class="radio-btn">
-                                                <input type="radio" name="<?= $var; ?>" value=0.4>
+                                                <input type="radio" name="<?= $var; ?>" value=0.2>
                                                 <label for="">Kurang</label>
                                             </div>
                                             <div class="radio-btn">
@@ -270,8 +270,9 @@ if (!isset($_SESSION["login"])) {
 
             if ($y == 0) {
                 $nilaiVar .= $data["$gayaName"] . " % $gayaName, ";
+            } else {
+                $nilaiVar .= $data["$gayaName"] . " % $gayaName. ";
             }
-            $nilaiVar .= $data["$gayaName"] . " % $gayaName. ";
             $y++;
         }
 

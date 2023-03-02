@@ -7,7 +7,7 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 
-$result = select("SELECT DISTINCT jenis.id_jenis, jenis.jenis FROM ciri INNER JOIN jenis ON ciri.jenis_id = jenis.id_jenis");
+$result = select("SELECT DISTINCT gaya.id_gaya, gaya.gaya FROM ciri INNER JOIN gaya ON ciri.gaya_id = gaya.id_gaya");
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ $result = select("SELECT DISTINCT jenis.id_jenis, jenis.jenis FROM ciri INNER JO
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/sweetalert2.all.min.js"></script>
-    <script src="js/ajaxJenis.js"></script>
+    <script src="js/ajaxGaya.js"></script>
     <script src="js/script.js"></script>
     <title>Halaman Gaya Belajar</title>
 </head>
@@ -52,9 +52,9 @@ $result = select("SELECT DISTINCT jenis.id_jenis, jenis.jenis FROM ciri INNER JO
                     <?php foreach ($result as $row) : ?>
                         <tr>
                             <td><?= $i; ?></td>
-                            <td><?= $row["jenis"]; ?></td>
+                            <td><?= $row["gaya"]; ?></td>
                             <td class="aksi">
-                                <a href="ciri-ciri.php?id_jenis=<?= $row["id_jenis"]; ?>" class="view"><button><i class="fa fa-regular fa-eye"></i></button></a>
+                                <a href="ciri-ciri.php?id_gaya=<?= $row["id_gaya"]; ?>" class="view"><button><i class="fa fa-regular fa-eye"></i></button></a>
                             </td>
                         </tr>
                         <?php $i++; ?>

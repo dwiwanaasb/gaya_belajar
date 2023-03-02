@@ -7,9 +7,9 @@ if (!isset($_SESSION["login"])) {
     exit;
 }
 
-$id_jenis = $_GET["id_jenis"];
-$jenis = select("SELECT jenis FROM jenis WHERE id_jenis = $id_jenis")[0];
-$result = select("SELECT ciri.ciri FROM ciri INNER JOIN jenis ON ciri.jenis_id = jenis.id_jenis WHERE ciri.jenis_id = $id_jenis");
+$id_gaya = $_GET["id_gaya"];
+$gaya = select("SELECT gaya FROM gaya WHERE id_gaya = $id_gaya")[0];
+$result = select("SELECT ciri.ciri FROM ciri INNER JOIN gaya ON ciri.gaya_id = gaya.id_gaya WHERE ciri.gaya_id = $id_gaya");
 ?>
 
 <!DOCTYPE html>
@@ -25,20 +25,20 @@ $result = select("SELECT ciri.ciri FROM ciri INNER JOIN jenis ON ciri.jenis_id =
     <script src="js/sweetalert2.all.min.js"></script>
     <script src="js/ajaxCiri.js"></script>
     <script src="js/script.js"></script>
-    <title>Halaman Gaya Belajar</title>
+    <title>Halaman Ciri Gaya Belajar</title>
 </head>
 
 <body>
     <?php
-    $id_jenis = rawurlencode($id_jenis);
+    $id_gaya = rawurlencode($id_gaya);
     ?>
-    <input type="hidden" id="id_jenis" value="<?= $id_jenis; ?>">
+    <input type="hidden" id="id_gaya" value="<?= $id_gaya; ?>">
     <div class="area">
         <div class="container">
             <div class="header">
                 <div class="left">
-                    <h2>Ciri-ciri gaya belajar <?= $jenis["jenis"]; ?></h2>
-                    <p>Halaman Ciri-ciri gaya belajar <?= $jenis["jenis"]; ?></p>
+                    <h2>Ciri-ciri gaya belajar <?= $gaya["gaya"]; ?></h2>
+                    <p>Halaman Ciri-ciri gaya belajar <?= $gaya["gaya"]; ?></p>
                 </div>
                 <div class="right">
                     <a href="gaya-belajar.php" class="home"><button>Kembali</button></a>

@@ -3,9 +3,9 @@ session_start();
 require 'config/functions.php';
 
 $keyword = $_GET["keyword"];
-$id_jenis = $_GET["id_jenis"];
-$jenis = select("SELECT jenis FROM jenis WHERE id_jenis = $id_jenis")[0];
-$result = select("SELECT ciri.ciri FROM ciri INNER JOIN jenis ON ciri.jenis_id = jenis.id_jenis WHERE ciri.jenis_id = $id_jenis AND ciri.ciri LIKE '%$keyword%'");
+$id_gaya = $_GET["id_gaya"];
+$gaya = select("SELECT gaya FROM gaya WHERE id_gaya = $id_gaya")[0];
+$result = select("SELECT ciri.ciri FROM ciri INNER JOIN gaya ON ciri.gaya_id = gaya.id_gaya WHERE ciri.gaya_id = $id_gaya AND ciri.ciri LIKE '%$keyword%'");
 ?>
 
 <table>
